@@ -27,19 +27,21 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(800, 800);
+        size(1000, 800);
         // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(P3D); 
+        //fullScreen(); 
     }
 
     public void setup()
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 1, width / 2, height / 2, 100);
+        radar1 = new Radar(this, 1, 150, 650, 80);
+        radar2 = new Radar(this, 1, 300, 550, 70);
     }
 
-    Radar radar;
+    Radar radar1;
+    Radar radar2;
 
     public void draw()
     {
@@ -49,8 +51,11 @@ public class UI extends PApplet
         mc.update();
         mc.render();
 
-        radar.update();
-        radar.render();
+        radar1.update();
+        radar1.render();
+
+        radar2.update();
+        radar2.render();
 
         if (checkKey(LEFT))
         {
