@@ -1,8 +1,8 @@
 # SciFi UI Project
 
-Name:
+Name: Ben Cosgrave
 
-Student Number: 
+Student Number: C17445274
 
 Fork this repository and use it a starter project for your assignment
 
