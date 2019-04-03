@@ -35,6 +35,7 @@ public class MovingCircle
     public void update()
     {
         x += dx;
+        // Change direction if reaches the edge of screen
         if ((x > ui.width - radius) || (x < radius))
         {
             dx *= -1;

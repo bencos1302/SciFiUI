@@ -21,15 +21,14 @@ public class Radar
 
     public void render()
     {
-        /*ui.pushMatrix();        
-        ui.noFill();
-        ui.stroke(0, 200, 0);
-        ui.translate(pos.x, pos.y);
-        ui.rotate(theta);
-        ui.ellipse(0, 0, radius * 2, radius * 2);
-        ui.line(0,0,0,-radius);
-        ui.popMatrix();
-        */
+        // ui.pushMatrix();        
+        // ui.noFill();
+        // ui.stroke(0, 200, 0);
+        // ui.translate(pos.x, pos.y);
+        // ui.rotate(theta);
+        // ui.ellipse(0, 0, radius * 2, radius * 2);
+        // ui.line(0,0,0,-radius);
+        // ui.popMatrix();
 
         ui.noFill();
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
@@ -38,7 +37,7 @@ public class Radar
         ui.line(pos.x, pos.y, x2, y2);
     }
 
-    float timeDelta = 1.0f / 240.0f;
+    float timeDelta = 1.0f / 120.0f;
 
     public void update()
     {
