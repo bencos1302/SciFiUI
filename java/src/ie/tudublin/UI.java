@@ -27,7 +27,7 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(1400, 800);
+        size(1200, 800);
         // Use fullscreen instead of size to make your interface fullscreen
         // fullScreen(); 
     }
@@ -36,32 +36,35 @@ public class UI extends PApplet
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 100);
-        radar1 = new Radar(this, 1, 110, 690, 80);
-        radar2 = new Radar(this, 1, 1290, 690, 80);
+        //radar1 = new Radar(this, 1, 110, 690, 80);
     }
 
-    Radar radar1;
-    Radar radar2;
+    //Radar radar1;
 
     public void draw() // Called 60 times a second
     {
         background(0);
 
-        // Underlay
-        stroke(203, 52, 52);
-        strokeWeight(4);
-        fill(163, 41, 41);
-        quad(0, 800, 18, 610, 210, 590, 190, 780);
+        // Dashboard
+        noStroke();
+        fill(255);
+        quad(250, 0, 350, 0, 400, 130, 350, 130);
+        quad(850, 0,   950, 0,   850, 130,   800, 130);
+        rect(350, 90, 500, 40);
 
-        // Modular elements
+        strokeWeight(2);
         stroke(255);
-        radar1.update();
-        radar1.render();
+        noFill();
+        ellipse(width / 2, height / 2, 30, 30);
+        ellipse(width / 2, height / 2, 2, 2);
 
-        radar2.update();
-        radar2.render();
-
+        noStroke();
         strokeWeight(1);
+        // Modular elements
+        
+        //radar1.update();
+        //radar1.render();
+
         b.render();
 
         mc.update();
