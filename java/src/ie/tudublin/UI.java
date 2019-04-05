@@ -43,7 +43,7 @@ public class UI extends PApplet
         //b = new Button(this, 50, 50, 100, 50, "I am a button");
         //mc = new MovingCircle(this, width / 2, height / 2, 100);
         ov = new Overlay(this);
-        mono = createFont("batmfa__.ttf", 16);
+        mono = createFont("batmfa__.ttf", 17);
         //radar1 = new Radar(this, 1, 110, 690, 80);
     }
 
@@ -51,7 +51,7 @@ public class UI extends PApplet
 
     public void draw() // Called 60 times a second
     {
-        background(img);
+        background(0);
         textFont(mono);
 
         // Modular elements
