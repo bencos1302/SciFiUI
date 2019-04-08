@@ -21,10 +21,10 @@ public class Overlay
         ui.fill(255);
         ui.text("Diagnostic Analysis Console    13B", 25, 25);
 
-        // ui.textSize(22);
-        // ui.text("Radar 1", 545, 240);
+        ui.textSize(22);
+        ui.text("Radar 1", 545, 235);
 
-        // ui.text("Radar 2", 545, 460);
+        ui.text("Radar 2", 545, 460);
 
         // Left Panel
         ui.stroke(255);

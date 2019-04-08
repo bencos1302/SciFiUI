@@ -12,8 +12,8 @@ public class UI extends PApplet
     PImage img;
     PFont mono;
     Time time;
-    // Radar radar;
-    // Radar sonar;
+    Radar radar;
+    Radar sonar;
 
     boolean[] keys = new boolean[1024];
 
@@ -47,8 +47,8 @@ public class UI extends PApplet
         ov = new Overlay(this);
         mono = createFont("batmfa__.ttf", 17);
         time = new Time(this);
-        //radar = new Radar(this, 1, 600, 150, 60);
-        //sonar = new Radar(this, 30, 600, 350, 80);
+        radar = new Radar(this, 1, 600, 150, 60);
+        sonar = new Radar(this, 2, 600, 350, 80);
     }
 
     public void draw() // Called 60 times a second
@@ -57,11 +57,11 @@ public class UI extends PApplet
         textFont(mono);
 
         // Modular Elements
-        // radar.update();
-        // radar.render();
+        radar.update();
+        radar.render();
 
-        // sonar.update();
-        // sonar.render();
+        sonar.update();
+        sonar.render();
 
         ov.render();
 
