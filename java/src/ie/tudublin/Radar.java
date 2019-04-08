@@ -30,15 +30,17 @@ public class Radar
         // ui.line(0,0,0,-radius);
         // ui.popMatrix();
 
-        ui.noFill();
-        ui.stroke(0);
+        ui.fill(80);
+        ui.stroke(255);
+        ui.strokeWeight(4);
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
         float x2 = pos.x + (float) Math.sin(theta) * radius;
         float y2 = pos.y - (float) Math.cos(theta) * radius;
         ui.line(pos.x, pos.y, x2, y2);
+        ui.strokeWeight(1);
     }
 
-    float timeDelta = 1.0f / 120.0f;
+    float timeDelta = 1.0f / 240.0f;
 
     public void update()
     {

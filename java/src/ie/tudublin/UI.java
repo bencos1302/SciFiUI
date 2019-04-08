@@ -11,6 +11,9 @@ public class UI extends PApplet
     Overlay ov;
     PImage img;
     PFont mono;
+    Time time;
+    // Radar radar;
+    // Radar sonar;
 
     boolean[] keys = new boolean[1024];
 
@@ -28,7 +31,6 @@ public class UI extends PApplet
     {
         return keys[c] || keys [Character.toUpperCase(c)];
     }
-    
 
     public void settings()
     {
@@ -39,27 +41,33 @@ public class UI extends PApplet
 
     public void setup()
     {
-        img = loadImage("background.png");
+        img = loadImage("background.jpg");
         //b = new Button(this, 50, 50, 100, 50, "I am a button");
         //mc = new MovingCircle(this, width / 2, height / 2, 100);
         ov = new Overlay(this);
         mono = createFont("batmfa__.ttf", 17);
-        //radar1 = new Radar(this, 1, 110, 690, 80);
+        time = new Time(this);
+        //radar = new Radar(this, 1, 600, 150, 60);
+        //sonar = new Radar(this, 30, 600, 350, 80);
     }
-
-    //Radar radar1;
 
     public void draw() // Called 60 times a second
     {
-        background(0);
+        background(img);
         textFont(mono);
 
-        // Modular elements
-        
-        //radar1.update();
-        //radar1.render();
+        // Modular Elements
+        // radar.update();
+        // radar.render();
+
+        // sonar.update();
+        // sonar.render();
 
         ov.render();
+
+        time.render();
+        time.update();
+
         //b.render();
 
         //mc.update();
