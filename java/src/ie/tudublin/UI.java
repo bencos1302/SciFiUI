@@ -6,7 +6,11 @@ import processing.core.PFont;
 
 public class UI extends PApplet
 {
-    //Button b;
+    Button engineButton;
+    Button weaponsButton;
+    Button conditionsButton;
+    Button detailsButton;
+
     //MovingCircle mc;
     Overlay ov;
     PImage img;
@@ -35,20 +39,21 @@ public class UI extends PApplet
     public void settings()
     {
         size(1200, 800);
-        // Use fullscreen instead of size to make your interface fullscreen
-        // fullScreen(); 
     }
 
     public void setup()
     {
         img = loadImage("background.jpg");
-        //b = new Button(this, 50, 50, 100, 50, "I am a button");
         //mc = new MovingCircle(this, width / 2, height / 2, 100);
         ov = new Overlay(this);
         mono = createFont("batmfa__.ttf", 17);
         time = new Time(this);
         radar = new Radar(this, 1, 600, 150, 60);
         sonar = new Radar(this, 2, 600, 350, 80);
+        engineButton = new Button(this, -5, 180, 485, 130, "Engine");
+        weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
+        conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
+        detailsButton = new Button(this, -5, 570, 485, 130, "System");
     }
 
     public void draw() // Called 60 times a second
@@ -68,7 +73,18 @@ public class UI extends PApplet
         time.render();
         time.update();
 
-        //b.render();
+        engineButton.render();
+        engineButton.update();
+
+        weaponsButton.render();
+        weaponsButton.update();
+
+        conditionsButton.render();
+        conditionsButton.update();
+
+        detailsButton.update();
+        detailsButton.render();
+        
 
         //mc.update();
         //mc.render();

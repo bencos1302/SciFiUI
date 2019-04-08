@@ -18,34 +18,33 @@ public class Time
     public void render()
     {
         // Current Time
-        ui.textSize(50);
+        ui.textSize(48);
 
         if (h < 10)
-        {
-            
-            ui.text("0" + h, 60, 95);
+        { 
+            ui.text("0" + h, 105, 75);
         }
         else
         {
-            ui.text(h, 60, 95);
+            ui.text(h, 105, 75);
         }
         
         if (m < 10)
         {
-            ui.text("0" + m, 190, 95);
+            ui.text("0" + m, 235, 75);
         }
         else
         {
-            ui.text(m, 190, 95);
+            ui.text(m, 235, 75);
         }
 
         if (s < 10)
         {
-            ui.text("0" + s, 320, 95);
+            ui.text("0" + s, 365, 75);
         }
         else
         {
-            ui.text(s, 320, 95);
+            ui.text(s, 365, 75);
         }
     }
 

@@ -19,7 +19,7 @@ public class Overlay
     {
         // Text
         ui.fill(255);
-        ui.text("Diagnostic Analysis Console    13B", 25, 25);
+        ui.text("Diagnostic Analysis Console", 200, 20);
 
         ui.textSize(22);
         ui.text("Radar 1", 545, 235);

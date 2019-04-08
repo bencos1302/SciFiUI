@@ -10,6 +10,8 @@ public class Button
     private float width;
     private float height;
     private String text;
+    private boolean hoverRect;
+    private int colour;
 
     public Button(UI ui, float x, float y, float width, float height, String text)
     {
@@ -23,10 +25,28 @@ public class Button
 
     public void render()
     {
-        ui.noFill();
+        ui.fill(colour);
         ui.stroke(255);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        ui.text(text, x + width * 0.5f, y + height * 0.5f);
+        ui.fill(255);
+        ui.textSize(48);
+        ui.text(text, x + 190, y + 50);
+        ui.textSize(20);
+        ui.text("\nInformation", x + 170, y+70);
+    }
+
+    public void update()
+    {
+        if (ui.mouseX >= x && ui.mouseX <= x+width && ui.mouseY >= y && ui.mouseY <= y+height)
+        {
+            hoverRect = true;
+            colour = 70;
+        }
+        else
+        {
+            hoverRect = false;
+            colour = 0;
+        }
     }
 }
