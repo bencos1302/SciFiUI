@@ -22,9 +22,9 @@ public class Overlay
         ui.text("Diagnostic Analysis Console", 200, 20);
 
         ui.textSize(22);
-        ui.text("Radar 1", 545, 235);
+        ui.text("Radar 1", ui.width / 2, 235);
 
-        ui.text("Radar 2", 545, 460);
+        ui.text("Radar 2", ui.width / 2, 460);
 
         // Left Panel
         ui.stroke(255);
@@ -82,9 +82,16 @@ public class Overlay
         ui.line(780, 300, 720, 300);
         ui.line(720, 300, 720, 140);
         
+        ui.fill(0);
+        ui.noStroke();
+        ui.rect(723, 143, 376, 155);
+        ui.quad(830, 143, 850, 123, 1050, 123, 1070, 143);
+        //ui.quad(980, 320, 800, 320, 800, 320, 780, 300);
+        ui.quad(780, 297, 1000, 297, 980, 317, 803, 317);
+        
         // Right Sidebar
         ui.noFill();
-        ui.rect(1150, 50, 100, 700, 18);
+        ui.rect(1150, 50, 100, 700);
 
         // Top Bar
         ui.rect(700, -50, 400, 100);

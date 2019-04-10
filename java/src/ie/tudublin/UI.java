@@ -18,6 +18,7 @@ public class UI extends PApplet
     Time time;
     Radar radar;
     Radar sonar;
+    Cursor cs;
 
     boolean[] keys = new boolean[1024];
 
@@ -43,6 +44,10 @@ public class UI extends PApplet
 
     public void setup()
     {
+        // Hide cursor
+        noCursor();
+        cs = new Cursor(this);
+
         img = loadImage("background.jpg");
         //mc = new MovingCircle(this, width / 2, height / 2, 100);
         ov = new Overlay(this);
@@ -62,6 +67,9 @@ public class UI extends PApplet
         textFont(mono);
 
         // Modular Elements
+        cs.render();
+        cs.update();
+
         radar.update();
         radar.render();
 
