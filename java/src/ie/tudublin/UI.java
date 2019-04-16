@@ -65,6 +65,10 @@ public class UI extends PApplet
         ov.render();
 
         // Modular Elements
+        radar.update();
+        radar.render();
+
+        // Modular Elements
         // radar.update();
         // radar.render();
 

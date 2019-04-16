@@ -30,7 +30,7 @@ public class Radar
         // ui.line(0,0,0,-radius);
         // ui.popMatrix();
 
-        ui.fill(80);
+        ui.fill(0);
         ui.stroke(255);
         ui.strokeWeight(4);
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
