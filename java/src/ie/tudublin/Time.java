@@ -1,62 +1,82 @@
 package ie.tudublin;
 
-public class Time
+import processing.core.PApplet;
+
+public class Time extends PApplet
 {
     private UI ui;
-    int s = ui.second();
-    int m = ui.minute();
-    int h = ui.hour();
-    char[] seconds;
-    char[] minutes;
-    char[] hours;
+    float x;
+    float y;
 
-    public Time(UI ui)
+    int s = second();
+    int m = minute();
+    int h = hour();
+
+    public Time(UI ui, float x, float y)
     {
         this.ui = ui;
+        this.x = x;
+        this.y = y;
     }
 
     public void render()
     {
-        // Current Time
         ui.textSize(48);
+        ui.strokeWeight(2);
 
+        // Hour
+        ui.line(x - 50, y - 35, x - 50, y + 45);
+        ui.line(x - 50, y - 35, x - 40, y - 35);
+        ui.line(x - 50, y + 45, x - 40, y + 45);
         if (h < 10)
         { 
-            ui.text("0" + h, 105, 75);
+            ui.text("0" + h, x, y);
         }
         else
         {
-            ui.text(h, 105, 75);
+            ui.text(h, x, y);
         }
-        
+        ui.line(x + 50, y - 35, x + 50, y + 45);
+        ui.line(x + 50, y - 35, x + 40, y - 35);
+        ui.line(x + 50, y + 45, x + 40, y + 45);
+
+        // Minute
+        ui.line(x + 80, y - 35, x + 80, y + 45);
+        ui.line(x + 80, y - 35, x + 90, y - 35);
+        ui.line(x + 80, y + 45, x + 90, y + 45);
         if (m < 10)
         {
-            ui.text("0" + m, 235, 75);
+            ui.text("0" + m, x + 130, y);
         }
         else
         {
-            ui.text(m, 235, 75);
+            ui.text(m, x + 130, y);
         }
+        ui.line(x + 180, y - 35, x + 180, y + 45);
+        ui.line(x + 180, y - 35, x + 170, y - 35);
+        ui.line(x + 180, y + 45, x + 170, y + 45);
 
+        // Second
+        ui.line(x + 210, y - 35, x + 210, y + 45);
+        ui.line(x + 210, y - 35, x + 220, y - 35);
+        ui.line(x + 210, y + 45, x + 220, y + 45);
         if (s < 10)
         {
-            ui.text("0" + s, 365, 75);
+            ui.text("0" + s, x + 260, y);
         }
         else
         {
-            ui.text(s, 365, 75);
-        }
+            ui.text(s, x + 260, y);
+        } 
+        ui.line(x + 310, y - 35, x + 310, y + 45);
+        ui.line(x + 310, y - 35, x + 300, y - 35);
+        ui.line(x + 310, y + 45, x + 300, y + 45); 
     }
 
     public void update()
     {
-        s = ui.second();
-        seconds = ("" + s).toCharArray();
-
-        m = ui.minute();
-        minutes = ("" + m).toCharArray();
-
-        h = ui.hour();
-        hours = ("" + h).toCharArray();
+        s = second();
+        m = minute();
+        h = hour();
     }
 }

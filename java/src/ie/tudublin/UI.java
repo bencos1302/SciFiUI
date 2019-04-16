@@ -44,10 +44,11 @@ public class UI extends PApplet
     public void setup()
     {
         img = loadImage("background.jpg");
-        //mc = new MovingCircle(this, width / 2, height / 2, 100);
+
         ov = new Overlay(this);
+
         mono = createFont("batmfa__.ttf", 17);
-        time = new Time(this);
+        time = new Time(this, 100, 75);
         radar = new Radar(this, 1, 600, 150, 60);
         sonar = new Radar(this, 2, 600, 350, 80);
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
@@ -61,29 +62,57 @@ public class UI extends PApplet
         background(img);
         textFont(mono);
 
-        // Modular Elements
-        radar.update();
-        radar.render();
-
-        sonar.update();
-        sonar.render();
-
         ov.render();
+
+        // Modular Elements
+        // radar.update();
+        // radar.render();
+
+        // sonar.update();
+        // sonar.render();
 
         time.render();
         time.update();
 
         engineButton.render();
         engineButton.update();
+        if (engineButton.hovering(-5, 180, 485, 130) == true)
+        {
+            if(mousePressed)
+            {
+
+            }
+        }
 
         weaponsButton.render();
         weaponsButton.update();
+        if (weaponsButton.hovering(-5, 310, 485, 130) == true)
+        {
+            if(mousePressed)
+            {
+
+            }
+        }
 
         conditionsButton.render();
         conditionsButton.update();
+        if (conditionsButton.hovering(-5, 440, 485, 130) == true)
+        {
+            if(mousePressed)
+            {
+                
+            }
+        }
 
         detailsButton.update();
         detailsButton.render();
+        if (detailsButton.hovering(-5, 570, 485, 130) == true)
+        {
+            if(mousePressed)
+            {
+                
+            }
+        }
         
 
         //mc.update();

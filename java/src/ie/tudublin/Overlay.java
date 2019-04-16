@@ -1,11 +1,5 @@
 package ie.tudublin;
 
-import java.awt.Stroke;
-
-import org.w3c.dom.Text;
-
-import processing.core.PApplet;
-
 public class Overlay
 {
     UI ui;
@@ -40,32 +34,7 @@ public class Overlay
 
 
         // 3 Boxes
-        ui.strokeWeight(2);
-
-        ui.line(50, 40, 50, 120);
-        ui.line(50, 40, 60, 40);
-        ui.line(50, 120, 60, 120);
-
-        ui.line(150, 40, 150, 120);
-        ui.line(150, 40, 140, 40);
-        ui.line(150, 120, 140, 120);
-
-        ui.line(180, 40, 180, 120);
-        ui.line(180, 40, 190, 40);
-        ui.line(180, 120, 190, 120);
-
-        ui.line(280, 40, 280, 120);
-        ui.line(280, 40, 270, 40);
-        ui.line(280, 120, 270, 120);
-
-        ui.line(310, 40, 310, 120);
-        ui.line(310, 40, 320, 40);
-        ui.line(310, 120, 320, 120);
-
-        ui.line(410, 40, 410, 120);
-        ui.line(410, 40, 400, 40);
-        ui.line(410, 120, 400, 120);
-
+        
         // Sensor Information
         ui.strokeWeight(4);
         ui.stroke(255);
