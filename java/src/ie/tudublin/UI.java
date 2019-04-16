@@ -64,20 +64,11 @@ public class UI extends PApplet
 
         ov.render();
 
-        // Modular Elements
-        radar.update();
-        radar.render();
-
-        // Modular Elements
-        // radar.update();
-        // radar.render();
-
-        // sonar.update();
-        // sonar.render();
-
+        // Clock
         time.render();
         time.update();
 
+        // Engine Information
         engineButton.render();
         engineButton.update();
         if (engineButton.hovering(-5, 180, 485, 130) == true)
@@ -88,6 +79,7 @@ public class UI extends PApplet
             }
         }
 
+        // Weapons Information
         weaponsButton.render();
         weaponsButton.update();
         if (weaponsButton.hovering(-5, 310, 485, 130) == true)
@@ -98,6 +90,7 @@ public class UI extends PApplet
             }
         }
 
+        // Weather Information
         conditionsButton.render();
         conditionsButton.update();
         if (conditionsButton.hovering(-5, 440, 485, 130) == true)
@@ -108,6 +101,7 @@ public class UI extends PApplet
             }
         }
 
+        // System Information
         detailsButton.update();
         detailsButton.render();
         if (detailsButton.hovering(-5, 570, 485, 130) == true)

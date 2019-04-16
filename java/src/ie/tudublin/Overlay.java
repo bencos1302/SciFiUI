@@ -15,11 +15,6 @@ public class Overlay
         ui.fill(255);
         ui.text("Diagnostic Analysis Console", 200, 20);
 
-        ui.textSize(22);
-        ui.text("Radar 1", ui.width / 2, 235);
-
-        ui.text("Radar 2", ui.width / 2, 460);
-
         // Left Panel
         ui.stroke(255);
         ui.strokeWeight(4);
@@ -31,9 +26,6 @@ public class Overlay
         ui.line(480, 700, 440, 740);
         ui.line(40, 740, 440, 740);
         ui.line(40, 740, 0, 780);
-
-
-        // 3 Boxes
         
         // Sensor Information
         ui.strokeWeight(4);

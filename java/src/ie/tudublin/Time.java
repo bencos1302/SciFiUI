@@ -23,6 +23,7 @@ public class Time extends PApplet
     {
         ui.textSize(48);
         ui.strokeWeight(2);
+        ui.stroke(255);
 
         // Hour
         ui.line(x - 50, y - 35, x - 50, y + 45);
