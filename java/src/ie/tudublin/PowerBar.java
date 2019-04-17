@@ -26,16 +26,10 @@ public class PowerBar
         //Status text
         ui.textSize(16);
         ui.text("Power Status: ", x + 90, y - height / 2);
-        if(ui.power == true)
-        {
-            ui.fill(127,255,0);
-            ui.text("ON", x + 200, y - height / 2);
-        }
-        else
-        {
-            ui.fill(139,0,0);
-            ui.text("ON", x + 200, y - height / 2);
-        }
+        ui.fill(127,255,0);
+        ui.text("ON", x + 200, y - height / 2);
+        ui.fill(255);
+        ui.text("Build vB1.0", x + 500, y - height / 2);
 
         // Rectangle
         ui.noFill();
@@ -49,23 +43,16 @@ public class PowerBar
 
     public void update()
     {
-        if (ui.power == true)
+        // If travelling bar reaches right edge of power bar
+        if(offset >= width - (width / 10))
         {
-            // If travelling bar reaches right edge of power bar
-            if(offset >= width - (width / 10))
-            {
-                direction = -1;
-            }
-            // If travelling bar reaches left edge of power bar
-            if(offset <= 0)
-            {
-                direction = 1;
-            }
-            offset += direction * speed;
+            direction = -1;
         }
-        else
+        // If travelling bar reaches left edge of power bar
+        if(offset <= 0)
         {
-            offset = 0;
+            direction = 1;
         }
+        offset += direction * speed;
     }
 }

@@ -1,10 +1,10 @@
 package ie.tudublin;
 
-public class Overlay
+public class Base
 {
     UI ui;
 
-    public Overlay(UI ui)
+    public Base(UI ui)
     {
         this.ui = ui;
     }

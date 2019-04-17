@@ -14,12 +14,12 @@ public class UI extends PApplet
     Button detailsButton;
 
     //MovingCircle mc;
-    Overlay overlay;
+    Base base;
     PImage backgroundImage;
     PFont mono;
 
     Time time;
-    PowerBar powerBar;
+    PowerBar pbar;
 
     boolean[] keys = new boolean[1024];
 
@@ -50,9 +50,9 @@ public class UI extends PApplet
         mono = createFont("batmfa__.ttf", 17);
 
         // Initialising objects
-        overlay = new Overlay(this);
+        base = new Base(this);
         time = new Time(this, 105, 75);
-        powerBar = new PowerBar(this, 600, 40, 570, 40, 4);
+        pbar = new PowerBar(this, 600, 40, 570, 40, 4);
 
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
         weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
@@ -62,24 +62,20 @@ public class UI extends PApplet
 
     public void draw() // Called 60 times a second
     {
+        // Set up elements
         background(backgroundImage);
         textFont(mono);
-
-        overlay.render();
-
+        base.render();
+        
+        // Modular elements
         // Clock
         time.render();
+        time.update();
 
         // Powerbar
-        powerBar.render();
-
-        if(power == true)
-        {
-            time.update();
-            powerBar.update();
-        }
+        pbar.render();
+        pbar.update();
         
-
         // Engine Information
         engineButton.render();
         engineButton.update();
