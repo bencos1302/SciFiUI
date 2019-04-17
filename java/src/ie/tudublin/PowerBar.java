@@ -32,7 +32,7 @@ public class PowerBar
         ui.text("Build vB1.0", x + 500, y - height / 2);
 
         // Rectangle
-        ui.noFill();
+        ui.fill(220);
         ui.rect(x, y, width, height);
         
         // Travelling Bar
