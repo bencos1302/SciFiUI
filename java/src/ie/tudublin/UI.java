@@ -6,18 +6,20 @@ import processing.core.PFont;
 
 public class UI extends PApplet
 {
+    public boolean power = true;
+
     Button engineButton;
     Button weaponsButton;
     Button conditionsButton;
     Button detailsButton;
 
     //MovingCircle mc;
-    Overlay ov;
-    PImage img;
+    Overlay overlay;
+    PImage backgroundImage;
     PFont mono;
+
     Time time;
-    Radar radar;
-    Radar sonar;
+    PowerBar powerBar;
 
     boolean[] keys = new boolean[1024];
 
@@ -43,14 +45,15 @@ public class UI extends PApplet
 
     public void setup()
     {
-        img = loadImage("background.jpg");
-
-        ov = new Overlay(this);
-
+        // Set background and font
+        backgroundImage = loadImage("background.jpg");
         mono = createFont("batmfa__.ttf", 17);
-        time = new Time(this, 100, 75);
-        radar = new Radar(this, 1, 600, 150, 60);
-        sonar = new Radar(this, 2, 600, 350, 80);
+
+        // Initialising objects
+        overlay = new Overlay(this);
+        time = new Time(this, 105, 75);
+        powerBar = new PowerBar(this, 600, 40, 570, 40, 4);
+
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
         weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
         conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
@@ -59,14 +62,23 @@ public class UI extends PApplet
 
     public void draw() // Called 60 times a second
     {
-        background(img);
+        background(backgroundImage);
         textFont(mono);
 
-        ov.render();
+        overlay.render();
 
         // Clock
         time.render();
-        time.update();
+
+        // Powerbar
+        powerBar.render();
+
+        if(power == true)
+        {
+            time.update();
+            powerBar.update();
+        }
+        
 
         // Engine Information
         engineButton.render();
@@ -111,10 +123,6 @@ public class UI extends PApplet
                 
             }
         }
-        
-
-        //mc.update();
-        //mc.render();
 
         // if (checkKey(LEFT))
         // {

@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class Time extends PApplet
 {
-    private UI ui;
+    UI ui;
     float x;
     float y;
 
@@ -23,12 +23,11 @@ public class Time extends PApplet
     {
         ui.textSize(48);
         ui.strokeWeight(2);
-        ui.stroke(255);
 
         // Hour
-        ui.line(x - 50, y - 35, x - 50, y + 45);
-        ui.line(x - 50, y - 35, x - 40, y - 35);
-        ui.line(x - 50, y + 45, x - 40, y + 45);
+        ui.line(x - 55, y - 35, x - 55, y + 45);
+        ui.line(x - 55, y - 35, x - 45, y - 35);
+        ui.line(x - 55, y + 45, x - 45, y + 45);
         if (h < 10)
         { 
             ui.text("0" + h, x, y);

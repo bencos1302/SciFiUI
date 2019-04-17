@@ -10,7 +10,7 @@ public class Button
     private float width;
     private float height;
     private String text;
-    
+
     private int colour;
 
     public Button(UI ui, float x, float y, float width, float height, String text)
@@ -27,7 +27,7 @@ public class Button
     {
         ui.fill(colour);
         ui.stroke(255);
-        ui.strokeWeight(4);
+        ui.strokeWeight(2);
         ui.rect(x, y, width, height);
 
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
@@ -50,13 +50,13 @@ public class Button
         }
     }
 
-    // public void mousePressed()
-    // {
-    //     if (hovering(x, y, width, height) == true);
-    //     {
-    //         ui.radar.render();
-    //     }
-    // }
+    public void mousePressed()
+    {
+        if (hovering(x, y, width, height) == true);
+        {
+            
+        }
+    }
 
     boolean hovering(float x, float y, float width, float height)
     {
