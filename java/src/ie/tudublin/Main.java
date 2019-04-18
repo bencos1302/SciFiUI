@@ -2,7 +2,6 @@ package ie.tudublin;
 
 public class Main
 {	
-
 	public void startUI()
 	{
 		String[] a = {"MAIN"};

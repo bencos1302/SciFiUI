@@ -6,7 +6,7 @@ import processing.core.PFont;
 
 public class UI extends PApplet
 {
-    public boolean power = true;
+    public boolean engineOn = false;
 
     Button engineButton;
     Button weaponsButton;
@@ -20,6 +20,11 @@ public class UI extends PApplet
 
     Time time;
     PowerBar pbar;
+
+    EngineMonitor engineOil;
+    EngineMonitor engineTurbo;
+    EngineMonitor engineDistance;
+    EngineMonitor engineSpeed;
 
     boolean[] keys = new boolean[1024];
 
@@ -55,6 +60,11 @@ public class UI extends PApplet
         pbar = new PowerBar(this, 600, 40, 570, 40, 4);
 
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
+        engineOil = new EngineMonitor(this, 540, 140, "Oil Temperature");
+        engineTurbo = new EngineMonitor(this, 860, 140, "Turbo Boost");
+        engineDistance = new EngineMonitor(this, 540, 400, "Distance");
+        engineSpeed = new EngineMonitor(this, 860, 400, "Speed");
+
         weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
         conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
         detailsButton = new Button(this, -5, 570, 485, 130, "System");
@@ -83,9 +93,17 @@ public class UI extends PApplet
         {
             if(mousePressed)
             {
-                
+                // engineOn = !engineOn;
             }
         }
+        if(engineOn == true)
+        {
+            // engineMonitor.render();
+        }
+        engineOil.render();
+        engineTurbo.render();
+        engineDistance.render();
+        engineSpeed.render();
 
         // Weapons Information
         weaponsButton.render();
