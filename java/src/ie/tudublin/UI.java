@@ -61,7 +61,7 @@ public class UI extends PApplet
         pbar = new PowerBar(this, 600, 40, 570, 40, 4);
 
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
-        engineOil = new EngineOil(this, 540, 140, "Oil Temperature");
+        engineOil = new EngineOil(this, 540, 140, 60, 120, "Oil Temperature");
         engineDist = new EngineDistance(this, 540, 400, "Distance Travelled");
         // engineTurbo = new EngineMonitor(this, 860, 140, "Turbo Boost");
         
@@ -104,6 +104,7 @@ public class UI extends PApplet
         }
         engineOil.render();
         engineDist.render();
+        engineDist.update();
         // engineTurbo.render();
         // engineSpeed.render();
 

@@ -1,17 +1,23 @@
 package ie.tudublin;
 
+import java.util.Random;
+
 public class EngineOil extends EngineMonitor
 {
     private float temperature;
     private float minTemp = temperature;
     private float maxTemp;
+    private float random;
+    private int i;
 
     // Constructor
-    public EngineOil(UI ui, float x, float y, String text)
+    public EngineOil(UI ui, float x, float y, float min, float max, String text)
     {
         this.ui = ui;
         this.x = x;
         this.y = y;
+        this.min = min;
+        this.max = max;
         this.text = text;
     }
 
@@ -45,6 +51,18 @@ public class EngineOil extends EngineMonitor
 
     public void update()
     {
+        if (i == 60)
+        {
+            Random r = new Random();
+            random = min + r.nextFloat() * (max - min);
+            temperature = random;
+            i = 0;
+        }
+        else
+        {
+            i++;
+        }
+
         if(temperature < minTemp)
         {
             minTemp = temperature;

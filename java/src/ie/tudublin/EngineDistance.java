@@ -39,15 +39,16 @@ public class EngineDistance extends EngineMonitor
         ui.rect(x, y + 140, 300, 60);
         ui.fill(255);
         ui.textSize(12);
-        ui.text("Min: " + ui.nf(minDist, 0, 4), x + 60, y + 160);
-        ui.text("Max: " + ui.nf(maxDist, 0, 4), x + 60, y + 180);
+        ui.text("Min: " + ui.nf(minDist, 0, 3), x + 60, y + 160);
+        ui.text("Max: " + ui.nf(maxDist, 0, 3), x + 60, y + 180);
     }
 
     public void update()
     {
-        // if(distance > maxDist)
-        // {
-        //     maxDist = distance;
-        // }
+        distance += 0.0001f;
+        if(distance > maxDist)
+        {
+            maxDist = distance;
+        }
     }
 }
