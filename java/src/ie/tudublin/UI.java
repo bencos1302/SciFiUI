@@ -20,6 +20,7 @@ public class UI extends PApplet
 
     Time time;
     PowerBar pbar;
+    FuelTank fuel;
 
     EngineMonitor engineOil;
     EngineMonitor engineDist;
@@ -57,7 +58,8 @@ public class UI extends PApplet
         // Initialising objects
         base = new Base(this);
         time = new Time(this, 105, 75);
-        pbar = new PowerBar(this, 600, 40, 570, 40, 4);
+        pbar = new PowerBar(this, 570, 40, 570, 40, 4);
+        fuel = new FuelTank(this, 530, 650, 600, 100, "Fuel Tank");
 
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
         engineOil = new EngineOil(this, 540, 140, 80, 90, "Oil Temperature");
@@ -105,6 +107,8 @@ public class UI extends PApplet
         engineTurbo.update();
         engineSpeed.render();
         engineSpeed.update();
+        fuel.render();
+        fuel.update();
 
         // Weapons Information
         weaponsButton.render();
