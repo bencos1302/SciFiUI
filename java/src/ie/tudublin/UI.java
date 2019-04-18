@@ -21,11 +21,10 @@ public class UI extends PApplet
     Time time;
     PowerBar pbar;
 
-    EngineOil engineOil;
+    EngineMonitor engineOil;
     EngineMonitor engineDist;
-    // EngineMonitor engineTurbo;
-    
-    // EngineMonitor engineSpeed;
+    EngineMonitor engineTurbo;
+    EngineMonitor engineSpeed;
 
     boolean[] keys = new boolean[1024];
 
@@ -61,11 +60,10 @@ public class UI extends PApplet
         pbar = new PowerBar(this, 600, 40, 570, 40, 4);
 
         engineButton = new Button(this, -5, 180, 485, 130, "Engine");
-        engineOil = new EngineOil(this, 540, 140, 60, 120, "Oil Temperature");
+        engineOil = new EngineOil(this, 540, 140, 80, 90, "Oil Temperature");
         engineDist = new EngineDistance(this, 540, 400, "Distance Travelled");
-        // engineTurbo = new EngineMonitor(this, 860, 140, "Turbo Boost");
-        
-        // engineSpeed = new EngineMonitor(this, 860, 400, "Speed");
+        engineTurbo = new EngineTurbo(this, 860, 140, 23500, 24500, "Turbo");
+        engineSpeed = new EngineSpeed(this, 860, 400, 195, 205, "Speedometer");
 
         weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
         conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
@@ -98,15 +96,15 @@ public class UI extends PApplet
                 // engineOn = !engineOn;
             }
         }
-        if(engineOn == true)
-        {
-            // engineMonitor.render();
-        }
+
         engineOil.render();
+        engineOil.update();
         engineDist.render();
         engineDist.update();
-        // engineTurbo.render();
-        // engineSpeed.render();
+        engineTurbo.render();
+        engineTurbo.update();
+        engineSpeed.render();
+        engineSpeed.update();
 
         // Weapons Information
         weaponsButton.render();

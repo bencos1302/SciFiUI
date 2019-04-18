@@ -3,7 +3,6 @@ package ie.tudublin;
 public class EngineDistance extends EngineMonitor
 {
     private float distance;
-    private float minDist;
     private float maxDist;
 
     // Constructor
@@ -30,17 +29,17 @@ public class EngineDistance extends EngineMonitor
 
         ui.fill(255);
         ui.textSize(15);
-        ui.text("Parsecs", x + 240, y + 110);
-        ui.textSize(60);
-        ui.text(ui.nf(distance, 0, 3), x + 170, y + 70);
+        ui.text("Parsecs", x + 200, y + 110);
+        ui.textSize(70);
+        ui.text(ui.nf(distance, 0, 3), x + 160, y + 70);
 
         // Lower Box
         ui.fill(40);
         ui.rect(x, y + 140, 300, 60);
         ui.fill(255);
-        ui.textSize(12);
-        ui.text("Min: " + ui.nf(minDist, 0, 3), x + 60, y + 160);
-        ui.text("Max: " + ui.nf(maxDist, 0, 3), x + 60, y + 180);
+        ui.textSize(14);
+        ui.text("Destination: ", x + 80, y + 160);
+        ui.text("Longest Journey: " + ui.nf(maxDist, 0, 3) + " P", x + 140, y + 180);
     }
 
     public void update()

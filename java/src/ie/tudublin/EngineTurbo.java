@@ -2,15 +2,12 @@ package ie.tudublin;
 
 import java.util.Random;
 
-public class EngineOil extends EngineMonitor
+public class EngineTurbo extends EngineMonitor
 {
-    private float temperature;
-    private float maxTemp;
-    private float random;
-    private int i;
+    private int rpm;
+    private int i, random;
 
-    // Constructor
-    public EngineOil(UI ui, float x, float y, float min, float max, String text)
+    public EngineTurbo(UI ui, float x, float y, int min, int max, String text)
     {
         this.ui = ui;
         this.x = x;
@@ -34,17 +31,18 @@ public class EngineOil extends EngineMonitor
         ui.rect(x, y, 300, 200);
 
         ui.fill(255);
-        ui.textSize(30);
-        //ui.text("°C", x + 200, y + 110);
-        ui.textSize(70);
-        ui.text(ui.nf(temperature, 0, 1) + "°C", x + 150, y + 70);
+        ui.textSize(15);
+        ui.text("RPM", x + 200, y + 110);
+        ui.textSize(60);
+        ui.text(rpm, x + 160, y + 70);
 
         // Lower Box
         ui.fill(40);
         ui.rect(x, y + 140, 300, 60);
         ui.fill(255);
-        ui.textSize(16);
-        ui.text("Highest: " + ui.nf(maxTemp, 0, 1) + "°C", x + 100, y + 167);
+        ui.textSize(14);
+        ui.text("Pressure: 120 PSI", x + 110, y + 160);
+        ui.text("Oil: Mixed", x + 70, y + 180);
     }
 
     public void update()
@@ -52,15 +50,10 @@ public class EngineOil extends EngineMonitor
         if (i % 60 == 0)
         {
             Random r = new Random();
-            random = min + r.nextFloat() * (max - min);
-            temperature = random;
+            random = (int) (min + r.nextFloat() * (max - min));
+            rpm = random;
             i = 0;
         }
         i++;
-
-        if(temperature > maxTemp)
-        {
-            maxTemp = temperature;
-        }
     }
 }
