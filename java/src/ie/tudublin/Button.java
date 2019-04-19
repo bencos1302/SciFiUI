@@ -50,14 +50,6 @@ public class Button
         }
     }
 
-    public void mousePressed()
-    {
-        if (hovering(x, y, width, height) == true);
-        {
-            
-        }
-    }
-
     boolean hovering(float x, float y, float width, float height)
     {
         if (ui.mouseX >= x && ui.mouseX <= x+width && ui.mouseY >= y && ui.mouseY <= y+height)

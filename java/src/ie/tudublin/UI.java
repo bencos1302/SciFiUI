@@ -6,7 +6,7 @@ import processing.core.PFont;
 
 public class UI extends PApplet
 {
-    public boolean engineOn = false;
+    public int selection;
 
     Button engineButton;
     Button weaponsButton;
@@ -91,62 +91,88 @@ public class UI extends PApplet
         // Engine Information
         engineButton.render();
         engineButton.update();
-        if (engineButton.hovering(-5, 180, 485, 130) == true)
+        if(selection == 1)
         {
-            if(mousePressed)
-            {
-                // engineOn = !engineOn;
-            }
+            engineOil.render();
+            engineOil.update();
+            engineDist.render();
+            engineDist.update();
+            engineTurbo.render();
+            engineTurbo.update();
+            engineSpeed.render();
+            engineSpeed.update();
+            fuel.render();
+            fuel.update();
         }
-
-        engineOil.render();
-        engineOil.update();
-        engineDist.render();
-        engineDist.update();
-        engineTurbo.render();
-        engineTurbo.update();
-        engineSpeed.render();
-        engineSpeed.update();
-        fuel.render();
-        fuel.update();
-
+        
         // Weapons Information
         weaponsButton.render();
         weaponsButton.update();
-        if (weaponsButton.hovering(-5, 310, 485, 130) == true)
-        {
-            if(mousePressed)
-            {
-
-            }
-        }
+        
 
         // Weather Information
         conditionsButton.render();
         conditionsButton.update();
-        if (conditionsButton.hovering(-5, 440, 485, 130) == true)
-        {
-            if(mousePressed)
-            {
-                
-            }
-        }
+        
 
         // System Information
         detailsButton.update();
         detailsButton.render();
-        if (detailsButton.hovering(-5, 570, 485, 130) == true)
-        {
-            if(mousePressed)
-            {
-                
-            }
-        }
+        
 
         // if (checkKey(LEFT))
         // {
         //     System.out.println("Left arrow key pressed");
         // }
+    }
+
+    public void mouseClicked()
+    {
+        if(engineButton.hovering(-5, 180, 485, 130) == true)
+        {
+            if (selection == 1)
+            {
+                selection = 0;
+            }
+            else
+            {
+                selection = 1;
+            }
+        }
+
+        if(weaponsButton.hovering(-5, 310, 485, 130) == true)
+        {
+            if (selection == 2)
+            {
+                selection = 0;
+            }
+            else
+            {
+                selection = 2;
+            }
+        }
+        if(conditionsButton.hovering(-5, 440, 485, 130) == true)
+        {
+            if (selection == 3)
+            {
+                selection = 0;
+            }
+            else
+            {
+                selection = 3;
+            }
+        }
+        if(detailsButton.hovering(-5, 570, 485, 130) == true)
+        {
+            if (selection == 4)
+            {
+                selection = 0;
+            }
+            else
+            {
+                selection = 4;
+            }
+        }
     }
 }
 
