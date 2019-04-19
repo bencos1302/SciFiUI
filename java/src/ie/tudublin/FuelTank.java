@@ -34,9 +34,7 @@ public class FuelTank
 
         ui.fill(255);
         ui.textSize(40);
-        ui.text(text, x + width / 2, y + height / 2);
-
-        
+        ui.text(text, x + width / 2, y + height / 2);        
     }
 
     public void update()
@@ -44,6 +42,10 @@ public class FuelTank
         if (counter < (width - 1))
         {
             counter += 0.02f;
+        }
+        else
+        {
+            counter = 0f;
         }
     }
 }

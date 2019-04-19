@@ -13,7 +13,6 @@ public class UI extends PApplet
     Button conditionsButton;
     Button detailsButton;
 
-    //MovingCircle mc;
     Base base;
     PImage backgroundImage;
     PFont mono;
@@ -108,22 +107,26 @@ public class UI extends PApplet
         // Weapons Information
         weaponsButton.render();
         weaponsButton.update();
+        if(selection == 2)
+        {
+            
+        }
         
-
         // Weather Information
         conditionsButton.render();
         conditionsButton.update();
-        
+        if(selection == 3)
+        {
+            
+        }
 
         // System Information
         detailsButton.update();
         detailsButton.render();
-        
-
-        // if (checkKey(LEFT))
-        // {
-        //     System.out.println("Left arrow key pressed");
-        // }
+        if(selection == 4)
+        {
+            
+        }
     }
 
     public void mouseClicked()
