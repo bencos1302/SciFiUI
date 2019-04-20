@@ -4,7 +4,7 @@ public class WeaponAmmo extends Monitor
 {
     private int clipSize;
     private int totalAmount;
-
+    
     private float radius = 180;
 
     // Constructor
@@ -37,5 +37,4 @@ public class WeaponAmmo extends Monitor
     {
         
     }
-
 }
