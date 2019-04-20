@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import java.util.Random;
 
-public class EngineOil extends EngineMonitor
+public class EngineOil extends Monitor
 {
     private float temperature;
     private float maxTemp;

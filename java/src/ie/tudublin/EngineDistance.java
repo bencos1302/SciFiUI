@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-public class EngineDistance extends EngineMonitor
+public class EngineDistance extends Monitor
 {
     private float distance;
     private float maxDist;

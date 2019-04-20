@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-public class EngineMonitor
+public class Monitor
 {
     UI ui;
     float x, y, min, max;

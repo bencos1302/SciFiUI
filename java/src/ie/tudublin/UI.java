@@ -21,10 +21,14 @@ public class UI extends PApplet
     PowerBar pbar;
     FuelTank fuel;
 
-    EngineMonitor engineOil;
-    EngineMonitor engineDist;
-    EngineMonitor engineTurbo;
-    EngineMonitor engineSpeed;
+    Monitor engineOil;
+    Monitor engineDist;
+    Monitor engineTurbo;
+    Monitor engineSpeed;
+
+    Monitor weaponsAmmo;
+    Radar weaponsRadar;
+    Monitor weaponSystems;
 
     boolean[] keys = new boolean[1024];
 
@@ -67,6 +71,10 @@ public class UI extends PApplet
         engineSpeed = new EngineSpeed(this, 860, 400, 195, 205, "Speedometer");
 
         weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
+        weaponsAmmo = new WeaponAmmo(this, 1050, 220, 60, 2400);
+        weaponsRadar = new Radar(this, 1, 675, 250, 120, "Enemy Detection");
+        weaponSystems = new WeaponSystem(this, 550, 450);
+
         conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
         detailsButton = new Button(this, -5, 570, 485, 130, "System");
     }
@@ -109,7 +117,14 @@ public class UI extends PApplet
         weaponsButton.update();
         if(selection == 2)
         {
-            
+            weaponsAmmo.render();
+            weaponsAmmo.update();
+
+            weaponsRadar.render();
+            weaponsRadar.update();
+
+            weaponSystems.render();
+            weaponSystems.update();
         }
         
         // Weather Information

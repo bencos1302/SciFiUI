@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import java.util.Random;
 
-public class EngineSpeed extends EngineMonitor
+public class EngineSpeed extends Monitor
 {
     private int speed, i, random;
     private float topSpeed = 300;

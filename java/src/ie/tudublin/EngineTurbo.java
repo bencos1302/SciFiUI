@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import java.util.Random;
 
-public class EngineTurbo extends EngineMonitor
+public class EngineTurbo extends Monitor
 {
     private int rpm;
     private int i, random;
