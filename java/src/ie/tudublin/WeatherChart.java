@@ -1,10 +1,13 @@
 package ie.tudublin;
 
+import java.util.ArrayList;
+
 public class WeatherChart
 {
     UI ui;
     float x, y, size;
     
+    ArrayList<Location> locations = new ArrayList<Location>();
 
     public WeatherChart(UI ui, float x, float y, float size)
     {
