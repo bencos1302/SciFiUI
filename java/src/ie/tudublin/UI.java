@@ -29,6 +29,8 @@ public class UI extends PApplet
     Monitor weaponsAmmo;
     Radar weaponsRadar;
     Monitor weaponSystems;
+    
+    WeatherChart weatherChart;
 
     boolean[] keys = new boolean[1024];
 
@@ -76,6 +78,8 @@ public class UI extends PApplet
         weaponSystems = new WeaponSystem(this, 550, 450);
 
         conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
+        weatherChart = new WeatherChart(this, 520, 130, 630);
+
         detailsButton = new Button(this, -5, 570, 485, 130, "System");
     }
 
@@ -132,7 +136,8 @@ public class UI extends PApplet
         conditionsButton.update();
         if(selection == 3)
         {
-            
+            weatherChart.render();
+            weatherChart.update();
         }
 
         // System Information
