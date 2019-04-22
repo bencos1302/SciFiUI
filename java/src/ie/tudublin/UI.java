@@ -2,11 +2,12 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.data.Table;
 import processing.core.PFont;
 
-public class UI extends PApplet
-{
+public class UI extends PApplet {
     public int selection;
+    public boolean loaded;
 
     Button engineButton;
     Button weaponsButton;
@@ -16,6 +17,7 @@ public class UI extends PApplet
     Base base;
     PImage backgroundImage;
     PFont mono;
+    Table table;
 
     Time time;
     PowerBar pbar;
@@ -29,35 +31,31 @@ public class UI extends PApplet
     Monitor weaponsAmmo;
     Radar weaponsRadar;
     Monitor weaponSystems;
-    
+
     WeatherChart weatherChart;
 
     boolean[] keys = new boolean[1024];
 
-    public void keyPressed()
-    {
-        keys[keyCode] = true;
-    }
-    
-    public void keyReleased()
-    {
+    public void keyPressed() {
         keys[keyCode] = true;
     }
 
-    public boolean checkKey(int c)
-    {
-        return keys[c] || keys [Character.toUpperCase(c)];
+    public void keyReleased() {
+        keys[keyCode] = true;
     }
 
-    public void settings()
-    {
+    public boolean checkKey(int c) {
+        return keys[c] || keys[Character.toUpperCase(c)];
+    }
+
+    public void settings() {
         size(1200, 800);
     }
 
-    public void setup()
-    {
+    public void setup() {
         // Set background and font
         backgroundImage = loadImage("background.jpg");
+        table = loadTable("weather.csv", "header");
         mono = createFont("batmfa__.ttf", 17);
 
         // Initialising objects
@@ -136,8 +134,18 @@ public class UI extends PApplet
         conditionsButton.update();
         if(selection == 3)
         {
-            weatherChart.render();
-            weatherChart.update();
+            if (loaded == false)
+            {   
+                weatherChart.loadData(table);
+                weatherChart.printLocations();
+                loaded = true;
+            }
+            else
+            {
+                weatherChart.render();
+                weatherChart.drawGrid();
+                weatherChart.drawLocations();
+            }
         }
 
         // System Information

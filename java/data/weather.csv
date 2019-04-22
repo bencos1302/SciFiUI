@@ -1,6 +1,6 @@
-name	x	y	size	danger
-solar storm	740	300	80	5
-asteroid field	1030	700	90	2
-plasma emission	840	450	120	4
-comet belt	980	500	40	1
-gravity fault	1100	190	50	5
+name,x,y,size,danger
+solarstorm,740,300,170,5
+asteroid field,780,600,90,2
+plasma emission,840,450,120,4
+comet belt,980,500,40,4
+gravity fault,1040,240,50,5
