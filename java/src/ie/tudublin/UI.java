@@ -34,6 +34,8 @@ public class UI extends PApplet {
 
     WeatherChart weatherChart;
 
+    SystemInfo sysInfo;
+
     boolean[] keys = new boolean[1024];
 
     public void keyPressed() {
@@ -79,6 +81,7 @@ public class UI extends PApplet {
         weatherChart = new WeatherChart(this, 520, 130, 630);
 
         detailsButton = new Button(this, -5, 570, 485, 130, "System");
+        sysInfo = new SystemInfo(this, 530, 140, 630, 600);
     }
 
     public void draw() // Called 60 times a second
@@ -153,7 +156,8 @@ public class UI extends PApplet {
         detailsButton.render();
         if(selection == 4)
         {
-            
+            sysInfo.render();
+            sysInfo.update();
         }
     }
 
