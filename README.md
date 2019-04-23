@@ -10,19 +10,53 @@ This assignment tasked me with creating a futuristic / SciFi user interface usin
 # Instructions
 Once the program begins, not much of the UI is visible. The local time, power status bar and the left panel is all that shows until a button is clicked from the left panel.
 
-1 - Click on the Engine Information button.
+1. Click on the Engine Information button.
    This will display several more screens: Oil Temperature, Turbo, Distance Travelled and Speedometer. These screens update by themselves using the update() function which is called 60 times per second. At the bottom of the screen now shown is a Fuel tank, which depletes slowly as the ship travels further. Once the fuel tank is emptied, it is refilled automatically.
    
-2 - Click on the Weapons Information button.
+2. Click on the Weapons Information button.
    This presents several displays: Weapons Systems & Status, Current & Total Ammo, and an Enemy Detection Radar. Weapons are displayed with a green background if they are currently active and usable, and red if inactive and unusable.
    
-3 - Click the Weather Information button.
-   The screen will now display a grid of the current galaxy sector which the ship is flying in. The number below each circle corresponds to the danger level of that weather condition and the size of the circle surrounding them represents the area of space in which it effects.
+3. Click the Weather Information button.
+   The screen will now display a grid of the current galaxy sector which the ship is flying in. The number below each circle corresponds to the danger level of that weather condition and the size of the circle surrounding them represents the area of space in which it effects. 
    
-4 - Click the System Information button.
+4. Click the System Information button.
    This screen shows a graphic of the ship's specifications and some information about it's origin and serial number.
 
 # How it works
+The buttons on the left panel are operated by the use of a Button class and several functions. The hovering method of the Button class detects whether the mouse pointer is currently within the button's boundaries and the mouseClicked() function checks whether the mouse has been clicked whilst hovering over any of the Buttons. This function sets the selection variable to an integer that corresponds to whichever button is clicked. If a button has already been toggled, it will toggle the selection off (set it to a value of 0).
+```Java
+if(engineButton.hovering(-5, 180, 485, 130) == true)
+{
+    if (selection == 1)
+    {
+        selection = 0;
+    }
+    else
+    {
+        selection = 1;
+    }
+}
+	
+engineButton = new Button(this, -5, 180, 485, 130, "Engine");
+weaponsButton = new Button(this, -5, 310, 485, 130, "Weapons");
+conditionsButton = new Button(this, -5, 440, 485, 130, "Weather");
+detailsButton = new Button(this, -5, 570, 485, 130, "System");
+```
+For example, the weapon button, which operated in the same way to the rest of the buttons:
+```Java
+if(selection == 2) // The Weapons Information button
+{
+    weaponsAmmo.render();
+    weaponsAmmo.update();
+
+    weaponsRadar.render();
+    weaponsRadar.update();
+
+    weaponSystems.render();
+    weaponSystems.update();
+}
+```
+
 The time is updated using the text() and hour(), minute() and second() functions, which pulls the current system time from the computer which the program is running on. I placed them into variables which are updated every time the update() function runs - 60 times per second.
 ```Java
 int s = second();
@@ -67,11 +101,11 @@ public void update()
 }
 ```
 
-- The Engine Button utilises 4 subclasses of the Monitor class; EngineOil, EngineTurbo, EngineDistance and EngineSpeed. Each comprises of a rectangular shape with room for large text and smaller text.
+1. The Engine Button utilises 4 subclasses of the Monitor class; EngineOil, EngineTurbo, EngineDistance and EngineSpeed. Each comprises of a rectangular shape with room for large text and smaller text.
 
-Oil Temperature
+- EngineOil:
 
-![An image](images/oilTemp.png)
+![oilTemp](/images/oilTemp.png)
 
 ```Java
 public void update()
@@ -92,9 +126,9 @@ public void update()
 }
 ```
 
-Turbo Boost
+- EngineTurbo:
 
-![An image](images/Turbo.png)
+![Turbo](/images/Turbo.png)
 
 ```Java
 public void update()
@@ -110,9 +144,9 @@ public void update()
 }
 ```
 
-Distance
+- EngineDistance:
 
-![An image](images/Distance.png)
+![Distance](/images/Distance.png)
 
 ```Java
 public void update()
@@ -125,9 +159,9 @@ public void update()
 }
 ```
 
-Speedometer
+- EngineSpeed:
 
-![An image](images/Speedometer.png)
+![Speedometer](/images/Speedometer.png)
 
 ```Java
 public void update()
@@ -153,6 +187,7 @@ public EngineOil(UI ui, float x, float y, float min, float max, String text)
     this.max = max;
     this.text = text;
 }
+```
 
 Also included in this screen is a Fuel Tank, which operates by incrementing and subtracting a counter from the width of the bar until it reaches 0. Code as shown below:
 ```Java
@@ -185,9 +220,9 @@ public void update()
 }
 ```
 
-- The Weapons Information screen uses a for-loop to draw 5 bars representing each weapon system. Similar to how the Fuel tank worked on the Engine screen, a counter is incremented until it reaches the height of the bar and then is set back to 0, thus giving a pulsing effect representing that the system is connected to the ship. Two classes used on this screen are subclasses of Monitor; WeaponAmmo and WeaponSystem. A radar is also implemented by updating the destination co-ordinates of the line() function by changing the value of Theta. 
+2. The Weapons Information screen uses a for-loop to draw 5 bars representing each weapon system. Similar to how the Fuel tank worked on the Engine screen, a counter is incremented until it reaches the height of the bar and then is set back to 0, thus giving a pulsing effect representing that the system is connected to the ship. Two classes used on this screen are subclasses of Monitor; WeaponAmmo and WeaponSystem. A radar is also implemented by updating the destination co-ordinates of the line() function by changing the value of Theta. 
 
-![An Image](images/WeaponSystems.png)
+![WeaponSystems](/images/WeaponSystems.png)
 
 The following code is what was used to draw the 5 weapon systems bars.
 ```Java
@@ -216,9 +251,9 @@ for(int i = 0; i < 5; i++)
 }
 ```
 
-![An Image](images/Radar.png)
+![Radar](/images/Radar.png)
 
-x2, y2, the co-ordinates of the second point used as parameters of the line() function and the update() function which sets the value of theta:
+x2, y2, the co-ordinates of the second point (which connects to the circle), are used as parameters of the line() function.
 ```Java
 float x2 = pos.x + (float) Math.sin(theta) * radius;
 float y2 = pos.y - (float) Math.cos(theta) * radius;
@@ -229,64 +264,22 @@ public void update()
 }
 ```
 
+3. The Weather Information screen displays a grid with various space weather phenomena. Text below each circle shows the description and danger level of each event (with 5 being the highest).
+
+![WeatherMap](/images/WeatherChart.png)
+
+4. The System Information screen displays a diagram of the ship and information regarding it's origin and boot date. 
+
+![SystemInfo](/images/SystemsInfo.png)
+
 # What I am most proud of in the assignment
+I feel as though over the course of this project I've gained a lot more of an understanding of the Java programming language aswell as how to use Processing to a decent level. Using github was also completely new to me and extremely helpful in breaking the project up into small stages that I could hack away at whenever I found the time. Finding something to base my project off was also a great source of inspiration and it was really enjoyable to design a working, futuristic User Interface for the first time.
+
+Overall I would say the thing I'm most proud of coming out of this is how rewarding it was to see each of my commits to the repository add up over time to the complete item. I'm proud of how I managed my time and staggered each step so that it never felt like a chore. The project really felt more like a fun side-project rather than a grueling commitment and felt encouraging and left me with a hopeful outlook on future projects.
 
 # Markdown Tutorial
 
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
+A YouTube video of my UI in action:
 
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
