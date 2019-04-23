@@ -277,18 +277,9 @@ I feel as though over the course of this project I've gained a lot more of an un
 
 Overall I would say the thing I'm most proud of coming out of this is how rewarding it was to see each of my commits to the repository add up over time to the complete item. I'm proud of how I managed my time and staggered each step so that it never felt like a chore. The project really felt more like a fun side-project rather than a grueling commitment and felt encouraging and left me with a hopeful outlook on future projects.
 
-# Markdown Tutorial
-
+# Links
 A YouTube video of my UI in action:
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](https://img.youtube.com/vi/_oyWMrSmty0/0.jpg)](https://www.youtube.com/watch?v=_oyWMrSmty0)
 
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 
