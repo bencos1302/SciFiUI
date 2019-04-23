@@ -10,16 +10,16 @@ This assignment tasked me with creating a futuristic / SciFi user interface usin
 # Instructions
 Once the program begins, not much of the UI is visible. The local time, power status bar and the left panel is all that shows until a button is clicked from the left panel.
 
-1) Click on the Engine Information button.
+1 - Click on the Engine Information button.
    This will display several more screens: Oil Temperature, Turbo, Distance Travelled and Speedometer. These screens update by themselves using the update() function which is called 60 times per second. At the bottom of the screen now shown is a Fuel tank, which depletes slowly as the ship travels further. Once the fuel tank is emptied, it is refilled automatically.
    
-2) Click on the Weapons Information button.
+2 - Click on the Weapons Information button.
    This presents several displays: Weapons Systems & Status, Current & Total Ammo, and an Enemy Detection Radar. Weapons are displayed with a green background if they are currently active and usable, and red if inactive and unusable.
    
-3) Click the Weather Information button.
+3 - Click the Weather Information button.
    The screen will now display a grid of the current galaxy sector which the ship is flying in. The number below each circle corresponds to the danger level of that weather condition and the size of the circle surrounding them represents the area of space in which it effects.
    
-4) Click the System Information button.
+4 - Click the System Information button.
    This screen shows a graphic of the ship's specifications and some information about it's origin and serial number.
 
 # How it works
@@ -70,7 +70,9 @@ public void update()
 - The Engine Button utilises 4 subclasses of the Monitor class; EngineOil, EngineTurbo, EngineDistance and EngineSpeed. Each comprises of a rectangular shape with room for large text and smaller text.
 
 Oil Temperature
+
 ![An image](images/oilTemp.png)
+
 ```Java
 public void update()
 {
@@ -91,7 +93,9 @@ public void update()
 ```
 
 Turbo Boost
+
 ![An image](images/Turbo.png)
+
 ```Java
 public void update()
 {
@@ -107,7 +111,9 @@ public void update()
 ```
 
 Distance
+
 ![An image](images/Distance.png)
+
 ```Java
 public void update()
 {
@@ -120,7 +126,9 @@ public void update()
 ```
 
 Speedometer
+
 ![An image](images/Speedometer.png)
+
 ```Java
 public void update()
 {
@@ -178,7 +186,9 @@ public void update()
 ```
 
 - The Weapons Information screen uses a for-loop to draw 5 bars representing each weapon system. Similar to how the Fuel tank worked on the Engine screen, a counter is incremented until it reaches the height of the bar and then is set back to 0, thus giving a pulsing effect representing that the system is connected to the ship. Two classes used on this screen are subclasses of Monitor; WeaponAmmo and WeaponSystem. A radar is also implemented by updating the destination co-ordinates of the line() function by changing the value of Theta. 
+
 ![An Image](images/WeaponSystems.png)
+
 The following code is what was used to draw the 5 weapon systems bars.
 ```Java
 for(int i = 0; i < 5; i++)
@@ -205,7 +215,9 @@ for(int i = 0; i < 5; i++)
     ui.text(weapons[i], x + 50 + (i * 120), y + 320);
 }
 ```
+
 ![An Image](images/Radar.png)
+
 x2, y2, the co-ordinates of the second point used as parameters of the line() function and the update() function which sets the value of theta:
 ```Java
 float x2 = pos.x + (float) Math.sin(theta) * radius;
