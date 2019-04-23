@@ -35,7 +35,6 @@ public class EngineOil extends Monitor
 
         ui.fill(255);
         ui.textSize(30);
-        //ui.text("°C", x + 200, y + 110);
         ui.textSize(70);
         ui.text(ui.nf(temperature, 0, 1) + "°C", x + 150, y + 70);
 

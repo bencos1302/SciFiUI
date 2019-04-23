@@ -55,9 +55,4 @@ public class WeaponSystem extends Monitor
 
         
     }
-
-    public void fire()
-    {
-
-    }
 }
